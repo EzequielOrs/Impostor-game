@@ -1,0 +1,24 @@
+@layer components {
+  .page-container {
+    @apply p-6 max-w-3xl mx-auto;
+  }
+  .title {
+    @apply text-2xl font-semibold;
+  }
+  .form-row {
+    @apply mt-3 flex gap-2 items-center;
+  }
+  .name-input {
+    @apply flex-1 p-2 rounded-md border border-gray-300 bg-white/60;
+    color: #000;
+  }
+  .name-input::placeholder {
+    color: #6b7280; /* gray-500 */
+  }
+  .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700;
+  }
+  .participants-grid {
+    @apply mt-4 grid gap-2;
+  }
+}

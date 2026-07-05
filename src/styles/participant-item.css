@@ -1,0 +1,14 @@
+@layer components {
+  .participant-item {
+    @apply flex items-center justify-between p-3 border rounded-md bg-white/50;
+  }
+  .participant-actions {
+    @apply flex gap-2;
+  }
+  .btn-edit {
+    @apply px-2 py-1 rounded bg-yellow-300 hover:bg-yellow-400;
+  }
+  .btn-delete {
+    @apply px-2 py-1 rounded bg-red-400 text-white hover:bg-red-500;
+  }
+}
