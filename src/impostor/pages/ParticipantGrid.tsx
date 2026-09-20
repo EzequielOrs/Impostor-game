@@ -13,10 +13,24 @@ export const ParticipantGrid = () => {
     const [participants, setParticipants] = useState<Participant[]>([])
 
     const addParticipant = () => {
-    const trimmed = name.trim()
-    if (!trimmed) return
-    setParticipants(prev => [...prev, { id: Date.now(), name: trimmed }])
-    setName('')
+        const trimmed = name.trim()
+        if (!trimmed) return
+        setParticipants(prev => [...prev, { id: Date.now(), name: trimmed }])
+        setName('')
+    }
+
+    const deleteParticipant = (id: number) => {
+        setParticipants(prev => prev.filter(p => p.id !== id))
+    }
+
+    const editParticipant = (id: number, newName: string) => {
+        const newParticipantsArr = participants.map(p => {
+            if (p.id === id) {
+                return {...p, name: newName}
+            }
+            return p
+        })
+        setParticipants(newParticipantsArr)
     }
     
     return (
@@ -37,8 +51,11 @@ export const ParticipantGrid = () => {
     
             <div className="participants-grid">
             {participants.map(p => { 
-                console.log(p);
-                return <ParticipantItem key={p.id} participant={p}/>
+                return <ParticipantItem 
+                    key={p.id} participant={p}
+                    onDelete={deleteParticipant}
+                    onEdit={editParticipant}
+                    />
                 }
             )}
             </div>
